@@ -1,0 +1,144 @@
+:root {
+  --white: #fbfbfb;
+  --main-black: #191a15;
+  --main-gray: #8a8a89;
+  --bg-light: #f3f3f3;
+  --error-text: rgb(195, 32, 32);
+
+  --star-rating: #ffc531;
+
+  --accent-color: #54be96;
+  --accent-color-hover: #36a379;
+  --avatar-bg: rgba(84, 190, 150, 0.2);
+  --decorIcon-bg: #4535af;
+
+  --font-family: 'Inter', sans-serif;
+}
+
+[data-theme='blue'] {
+  --accent-color: #3470ff;
+  --accent-color-hover: #255ee8;
+  --avatar-bg: rgba(52, 112, 255, 0.2);
+  --decorIcon-bg: #54be96;
+}
+
+[data-theme='orange'] {
+  --accent-color: #fc832c;
+  --accent-color-hover: #f37113;
+  --avatar-bg: rgba(252, 131, 44, 0.2);
+  --decorIcon-bg: #54be96;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+body {
+  color: var(--main-black);
+  background-color: var(--white);
+  font-family: var(--font-family);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
+}
+
+button,
+.button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    border-color 0.3s ease,
+    color 0.3s ease,
+    fill 0.3s ease;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+input,
+textarea {
+  font-family: inherit;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.container {
+  min-width: 320px;
+  max-width: 375px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 768px;
+    padding: 0 60px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .container {
+    max-width: 1440px;
+    padding: 0 128px;
+  }
+}
+
+.loader-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(251, 251, 251, 0.4);
+  z-index: 9999;
+  pointer-events: none;
+}
+
+.custom-toast {
+  background-color: var(--accent-color) !important; /* Твой цвет темы */
+  color: #fff !important;
+  border-radius: 12px !important;
+  padding: 16px 24px !important;
+  font-family: inherit;
+  font-weight: 500;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+/* Если хочешь, чтобы иконка тоже была белой */
+.custom-toast svg {
+  fill: #fff;
+}

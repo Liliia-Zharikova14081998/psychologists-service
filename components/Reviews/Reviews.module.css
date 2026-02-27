@@ -1,0 +1,99 @@
+.noReviews {
+  text-align: center;
+  font-size: 1.2em;
+  color: #666;
+  margin-top: 20px;
+}
+
+.reviewsContainer {
+  margin-top: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.reviewsList {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  margin-bottom: 40px;
+}
+
+.reviewItem {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.reviewHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.avatar {
+  border-radius: 100px;
+  background-color: var(--avatar-bg);
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--accent-color);
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviewerName {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--main-black);
+  margin-bottom: 4px;
+}
+
+.starRating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ratingText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--main-black);
+}
+
+.reviewText {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(25, 26, 21, 0.5);
+}
+
+.appointmentBtn {
+  border-radius: 30px;
+  padding: 14px 32px;
+  background-color: var(--accent-color);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.01em;
+  color: var(--white);
+  max-width: 227px;
+  margin: 0 auto;
+}
+
+.appointmentBtn:hover,
+.appointmentBtn:focus,
+.appointmentBtn:active {
+  background-color: var(--accent-color-hover);
+}
+
+@media screen and (min-width: 768px) {
+  .appointmentBtn {
+    margin: 0;
+  }
+}

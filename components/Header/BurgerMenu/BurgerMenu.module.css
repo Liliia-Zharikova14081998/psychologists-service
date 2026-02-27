@@ -1,0 +1,46 @@
+.menu {
+  padding: 20px;
+  height: 100%;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 80px;
+}
+
+.logo {
+  width: 124px;
+  height: 20px;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: #54be96;
+}
+
+.logoDot {
+  font-weight: 500;
+}
+
+.logoServices {
+  font-weight: 600;
+  color: #191a15;
+}
+
+.closeIcon {
+  stroke: currentColor;
+}
+
+.closeMenuBurger {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.closeMenuBurger:active,
+.closeMenuBurger:focus {
+  color: var(--accent-color-hover);
+}

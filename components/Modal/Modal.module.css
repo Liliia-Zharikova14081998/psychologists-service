@@ -1,0 +1,61 @@
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(25, 26, 21, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal {
+  background-color: var(--white);
+  border-radius: 30px;
+  position: relative;
+  padding: 40px 20px;
+  min-width: 320px;
+  max-width: 375px;
+  margin: 0 auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal::-webkit-scrollbar {
+  width: 6px;
+}
+
+.modal::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+}
+
+.closeBtn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.closeIcon {
+  stroke: currentColor;
+}
+
+.closeBtn:active,
+.closeBtn:focus,
+.closeBtn:hover {
+  color: var(--accent-color-hover);
+}
+
+@media screen and (min-width: 1440px) {
+  .modal {
+    max-width: 566px;
+    padding: 64px;
+  }
+}

@@ -1,0 +1,45 @@
+.header {
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(25, 26, 21, 0.1);
+}
+
+.headerContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.navDesktop {
+  display: none;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--accent-color);
+}
+
+.logoDot {
+  font-weight: 500;
+}
+
+.logoServices {
+  font-weight: 600;
+  color: #191a15;
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    padding: 24px 0;
+  }
+
+  .navDesktop {
+    display: block;
+  }
+
+  .navTabMob {
+    display: none;
+  }
+}

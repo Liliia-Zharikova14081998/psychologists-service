@@ -1,0 +1,232 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background-color: var(--white);
+  border-radius: 24px;
+  position: relative;
+  width: 100%;
+}
+
+.imageWrapper {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  padding: 12px;
+  border: 2px solid rgba(84, 190, 150, 0.2);
+  border-radius: 30px;
+  flex-shrink: 0;
+  margin: 0 auto;
+}
+
+.avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.onlineStatus {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  width: 14px;
+  height: 14px;
+  background-color: #38cd3e;
+  border: 2px solid var(--white);
+  border-radius: 100%;
+  z-index: 1;
+}
+
+.cardContent {
+  flex-grow: 1;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.cardType {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--main-gray);
+}
+
+.cardTitle {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1;
+  color: var(--main-black);
+}
+
+.titleWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.priceWrapper {
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 8px;
+}
+
+.ratingText,
+.cardPrice {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--main-black);
+}
+
+.vectorIcon {
+  stroke-width: 1px;
+  stroke: rgba(25, 26, 21, 0.2);
+}
+
+.priceAccent {
+  color: #38cd3e;
+}
+
+.heartBtn {
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.heartIcon {
+  fill: none;
+  stroke-width: 2px;
+  stroke: var(--main-black);
+  transition:
+    fill 0.3s ease,
+    stroke 0.3s ease;
+}
+
+.heartBtn:hover .heartIcon,
+.heartBtn:focus-visible .heartIcon {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+}
+
+.heartBtn.active .heartIcon {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+}
+
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.featuresItem {
+  padding: 8px 16px;
+  background-color: var(--bg-light);
+  border-radius: 24px;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--main-gray);
+}
+
+.featureLabel {
+  color: var(--main-black);
+}
+
+.description {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(25, 26, 21, 0.5);
+}
+
+.cardBtn {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  color: var(--main-black);
+  display: inline-block;
+  background-color: transparent;
+  margin-top: 14px;
+}
+
+.cardBtn:hover,
+.cardBtn:focus,
+.cardBtn:active {
+  color: var(--accent-color-hover);
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .imageWrapper {
+    margin: 0;
+  }
+
+  .cardHeader {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  .titleWrapper {
+    flex: 1;
+  }
+
+  .priceWrapper {
+    flex-wrap: nowrap;
+    flex-shrink: 0;
+    flex-basis: auto;
+    justify-content: flex-end;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .card {
+    flex-direction: row;
+    padding: 24px;
+  }
+
+  .cardTitle {
+    font-size: 24px;
+  }
+
+  .priceWrapper {
+    gap: 0px;
+  }
+
+  .starIcon {
+    margin-right: 4px;
+  }
+
+  .ratingText {
+    font-size: 16px;
+    margin-right: 16px;
+  }
+  .cardPrice {
+    font-size: 16px;
+    margin-right: 28px;
+  }
+
+  .vectorIcon {
+    margin-right: 16px;
+  }
+}

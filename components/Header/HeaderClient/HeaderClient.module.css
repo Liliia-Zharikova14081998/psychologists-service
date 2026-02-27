@@ -1,0 +1,87 @@
+.clientWrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.burgerContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.burgerButton {
+  background-color: transparent;
+}
+
+.burgerButton:active,
+.burgerButton:focus {
+  color: var(--accent-color-hover);
+}
+
+.menuIcon {
+  stroke: currentColor;
+}
+
+.navDesktop {
+  display: none;
+}
+
+.navTabMob {
+  display: block;
+}
+
+.themeSwitcher {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+@media screen and (min-width: 1440px) {
+  .navDesktop {
+    display: block;
+  }
+
+  .navTabMob {
+    display: none;
+  }
+}
+
+.themeSwitcher {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.themeBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+  padding: 0;
+}
+
+.themeBtn:hover {
+  transform: scale(1.2);
+}
+
+.themeBtn.active {
+  border-color: var(--main-gray);
+}
+
+.green {
+  background-color: #54be96;
+}
+.blue {
+  background-color: #3470ff;
+}
+.orange {
+  background-color: #fc832c;
+}

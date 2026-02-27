@@ -1,0 +1,204 @@
+.container {
+  width: 100%;
+}
+
+.formTitle {
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  color: var(--main-black);
+  margin-bottom: 20px;
+}
+
+.text {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.25;
+  color: rgba(25, 26, 21, 0.5);
+  margin-bottom: 40px;
+}
+
+.psychologistInfo {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.labelSmall {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  color: var(--main-grey);
+  margin-bottom: 4px;
+}
+
+.name {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--main-black);
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.fieldWrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.input {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid rgba(25, 26, 21, 0.1);
+  border-radius: 12px;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.25;
+  color: var(--main-black);
+  outline: none;
+}
+
+.input:focus,
+.input:active,
+.input:hover {
+  border-color: var(--accent-color);
+}
+
+.inputError {
+  border-color: var(--error-text);
+}
+
+.errorText {
+  color: var(--error-text);
+  font-size: 12px;
+  margin-top: 4px;
+}
+
+.inputRow {
+  display: flex;
+  gap: 8px;
+}
+
+.textarea {
+  height: 116px;
+  resize: none;
+}
+
+.timeInputWrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+.clockIcon {
+  position: absolute;
+  top: 16px;
+  right: 18px;
+  fill: none;
+  stroke: var(--main-black);
+}
+
+.timeDropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  right: 0;
+  width: 151px;
+  background: var(--white);
+  box-shadow: 0 20px 69px rgba(0, 0, 0, 0.07);
+  border-radius: 12px;
+  padding: 16px;
+  z-index: 10;
+}
+
+.dropdownTitle {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--main-black);
+  margin-bottom: 16px;
+}
+
+.timeList {
+  max-height: 180px;
+  overflow-y: auto;
+  text-align: center;
+}
+
+.timeList::-webkit-scrollbar {
+  width: 6px;
+}
+.timeList::-webkit-scrollbar-thumb {
+  background: rgba(25, 26, 21, 0.05);
+  border-radius: 12px;
+}
+
+.timeItem {
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  color: rgba(25, 26, 21, 0.3);
+  padding: 4px 0;
+  cursor: pointer;
+  transition: color 0.2s;
+  letter-spacing: 0.25em;
+  width: 100%;
+}
+
+.timeItem:hover,
+.timeItem:focus,
+.timeItem:active {
+  color: var(--main-black);
+}
+.selectedTime {
+  color: var(--main-black);
+}
+
+.submitButton {
+  width: 100%;
+  padding: 16px;
+  background-color: var(--accent-color);
+  color: var(--white);
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 16px;
+  margin-top: 24px;
+}
+
+.submitButton:hover,
+.submitButton:focus,
+.submitButton:active {
+  background-color: var(--accent-color-hover);
+}
+
+@media screen and (min-width: 1440px) {
+  .formTitle {
+    font-size: 40px;
+  }
+
+  .text {
+    font-size: 16px;
+  }
+
+  .inputRow {
+    flex-direction: row;
+    gap: 8px;
+  }
+
+  .input {
+    font-size: 16px;
+  }
+}
