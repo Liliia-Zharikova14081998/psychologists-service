@@ -53,7 +53,7 @@ A high-performance web application designed to connect users with professional p
 **1. Clone the repository:**
 
 ```bash
-git clone https://github.com/your-username/psychologists-service.git
+git clone https://github.com/Liliia-Zharikova14081998/psychologists-service.git
 cd psychologists-service
 ```
 
