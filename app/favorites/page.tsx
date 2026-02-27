@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Favorites | Psychologists Service',
     description: 'View and manage your favorite psychologists.',
-    url: `https://psychologists-service.vercel.app/favorites`,
+    url: `https://psychologists-service-delta.vercel.app/favorites`,
     images: [
       {
         url: '/image/Hero.jpg', 

@@ -6,10 +6,12 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { appointmentSchema } from '@/lib/validation';
 import css from './AppointmentForm.module.css';
 import toast from 'react-hot-toast';
-
+import { db } from '@/lib/firebase'; 
+import { ref, push, set, onValue } from 'firebase/database';
 
 interface Props {
   psychologist: {
+    id?: string;
     name: string;
     avatar_url: string;
   };
@@ -24,6 +26,7 @@ const timeSlots = Array.from({ length: 20 }, (_, i) => {
 
 export default function AppointmentForm({ psychologist, onSuccess }: Props) {
   const [isTimeOpen, setIsTimeOpen] = useState(false);
+  const [bookedTimes, setBookedTimes] = useState<string[]>([]);
   const timeRef = useRef<HTMLDivElement>(null);
 
   const {
@@ -38,8 +41,25 @@ export default function AppointmentForm({ psychologist, onSuccess }: Props) {
   });
 
   const selectedTime = watch('time');
+  const psychId = psychologist.id ? String(psychologist.id) : null;
 
-  
+  useEffect(() => {
+    if (!psychId) return;
+
+    const appointmentsRef = ref(db, `appointments/${psychId}`);
+    const unsubscribe = onValue(appointmentsRef, (snapshot) => {
+      const data = snapshot.val();
+      if (data) {
+        const times = Object.values(data).map((item: any) => item.time);
+        setBookedTimes(times);
+      } else {
+        setBookedTimes([]);
+      }
+    });
+
+    return () => unsubscribe();
+  }, [psychId]);
+
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (timeRef.current && !timeRef.current.contains(event.target as Node)) {
@@ -50,20 +70,32 @@ export default function AppointmentForm({ psychologist, onSuccess }: Props) {
     return () => document.removeEventListener('mousedown', handleClickOutside);
   }, []);
 
-const onSubmit = (data: any) => {
-    console.log('Appointment data submitted:', data);
-    
-    // Показываем уведомление
-    toast.success(`Appointment with ${psychologist.name} successfully booked!`, {
-        icon: '📅',
-        style: {
-          borderRadius: '10px',
-          background: '#191A15',
-          color: '#fff',
-        },
+  const onSubmit = async (data: any) => {
+    if (!psychId) {
+      toast.error("Error: Psychologist ID not found");
+      return;
+    }
+
+    try {
+      const appointmentsRef = ref(db, `appointments/${psychId}`);
+      const newAppointmentRef = push(appointmentsRef);
+      
+      await set(newAppointmentRef, {
+        ...data,
+        psychologistName: psychologist.name,
+        createdAt: new Date().toISOString(),
       });
 
-    onSuccess();
+      toast.success(`Appointment with ${psychologist.name} successfully booked!`, {
+        icon: '📅',
+        className: 'custom-toast',
+      });
+
+      onSuccess();
+    } catch (error) {
+      console.error("Booking error:", error);
+      toast.error("Something went wrong. Please try again.");
+    }
   };
 
   return (
@@ -123,19 +155,25 @@ const onSubmit = (data: any) => {
                 <div className={css.timeDropdown}>
                   <p className={css.dropdownTitle}>Meeting time</p>
                   <ul className={css.timeList}>
-                    {timeSlots.map((slot) => (
-                      <li
-                        key={slot}
-                        className={`${css.timeItem} ${selectedTime === slot ? css.selectedTime : ''}`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setValue('time', slot, { shouldValidate: true });
-                          setIsTimeOpen(false);
-                        }}
-                      >
-                        {slot}
-                      </li>
-                    ))}
+                    {timeSlots.map((slot) => {
+                      const isBooked = bookedTimes.includes(slot);
+                      return (
+                        <li
+                          key={slot}
+                          className={`${css.timeItem} 
+                            ${selectedTime === slot ? css.selectedTime : ''} 
+                            ${isBooked ? css.booked : ''}`}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (isBooked) return; // Запрещаем выбор
+                            setValue('time', slot, { shouldValidate: true });
+                            setIsTimeOpen(false);
+                          }}
+                        >
+                          {slot} {isBooked && <span className={css.bookedLabel}>(Booked)</span>}
+                        </li>
+                      );
+                    })}
                   </ul>
                 </div>
               )}

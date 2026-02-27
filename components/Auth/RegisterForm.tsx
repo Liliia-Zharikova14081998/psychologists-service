@@ -8,6 +8,8 @@ import css from "./AuthForm.module.css";
 import { registerSchema } from "@/lib/validation";
 import { toast } from "react-hot-toast";
 import { SignUpData } from "@/types/auth";
+import { useAuthStore } from "@/lib/stores/authStore";
+import { auth } from "@/lib/firebase";
 
 
 interface Props {
@@ -35,6 +37,18 @@ export default function RegisterForm({ onSuccess }: Props) {
         password: data.password,
         username: data.username,
       });
+const currentUser = auth.currentUser;
+    if (currentUser) {
+  const userData = {
+    uid: currentUser.uid,
+    email: currentUser.email,
+    username: data.username, 
+    
+  };
+
+  useAuthStore.getState().setUser(userData as any); 
+}
+
       toast.success("You have successfully registered!", {
         className: 'custom-toast',
         icon: '✅',

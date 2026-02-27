@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Catalog | Psychologists Service',
     description: 'Find the best psychologists for your mental health needs.',
-    url: `https://psychologists-service.vercel.app/psychologists`,
+    url: `https://psychologists-service-delta.vercel.app/psychologists`,
     images: [
       {
         url: '/image/Hero.jpg', 

@@ -184,6 +184,20 @@
   background-color: var(--accent-color-hover);
 }
 
+.timeItem.booked {
+  background-color: #f3f3f3;
+  color: #ccc;
+  cursor: not-allowed;
+  text-decoration: line-through;
+}
+
+.bookedLabel {
+  font-size: 10px;
+  margin-left: 4px;
+  text-decoration: none;
+  display: inline-block;
+}
+
 @media screen and (min-width: 1440px) {
   .formTitle {
     font-size: 40px;
