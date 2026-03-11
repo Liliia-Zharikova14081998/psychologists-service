@@ -61,7 +61,7 @@ const [currentTheme, setCurrentTheme] = useState(() => {
   return (
    <div className={css.clientWrapper}>
       
-      <div className={css.themeSwitcher}>
+      <div className={css.themeSwitcher} >
         {['green', 'blue', 'orange'].map((theme) => (
           <button
             key={theme}
@@ -111,6 +111,8 @@ const [currentTheme, setCurrentTheme] = useState(() => {
               setIsOpen(false);
               setActiveModal('register');
             }}
+            currentTheme={currentTheme}
+            onThemeChange={handleThemeChange}
           />
         </ModalBurger>
       )}

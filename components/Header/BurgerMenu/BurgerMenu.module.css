@@ -7,7 +7,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .logo {
@@ -43,4 +43,50 @@
 .closeMenuBurger:active,
 .closeMenuBurger:focus {
   color: var(--accent-color-hover);
+}
+
+.themeSwitcher {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.themeBtn {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+  padding: 0;
+}
+
+.themeBtn:hover {
+  transform: scale(1.2);
+}
+
+.themeBtn.active {
+  border-color: var(--main-gray);
+}
+
+.green {
+  background-color: #54be96;
+}
+.blue {
+  background-color: #3470ff;
+}
+.orange {
+  background-color: #fc832c;
+}
+
+@media screen and (min-width: 768px) {
+  .themeSwitcher {
+    display: none;
+  }
+
+  .top {
+    margin-bottom: 80px;
+  }
 }

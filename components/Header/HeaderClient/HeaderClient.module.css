@@ -13,6 +13,7 @@
 
 .burgerButton {
   background-color: transparent;
+  flex-shrink: 0;
 }
 
 .burgerButton:active,
@@ -33,10 +34,17 @@
 }
 
 .themeSwitcher {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-left: 20px;
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .themeSwitcher {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    margin-right: 20px;
+    margin-left: 20px;
+  }
 }
 
 @media screen and (min-width: 1440px) {
@@ -47,13 +55,6 @@
   .navTabMob {
     display: none;
   }
-}
-
-.themeSwitcher {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-  margin-right: 20px;
 }
 
 .themeBtn {

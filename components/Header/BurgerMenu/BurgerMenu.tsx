@@ -8,9 +8,11 @@ type Props = {
   onClose: () => void;
   onLoginClick?: () => void;
   onRegisterClick?: () => void;
+  currentTheme: string; 
+  onThemeChange: (theme: string) => void;
 };
 
-export const BurgerMenu = ({ onClose, onLoginClick, onRegisterClick }: Props) => {
+export const BurgerMenu = ({ onClose, onLoginClick, onRegisterClick, currentTheme, onThemeChange }: Props) => {
   return (
     <div className={`${css.menu} container`}>
       <div className={css.top}>
@@ -24,12 +26,26 @@ export const BurgerMenu = ({ onClose, onLoginClick, onRegisterClick }: Props) =>
         </button>
       </div>
 
+        <div className={css.themeSwitcher}>
+        {['green', 'blue', 'orange'].map((theme) => (
+          <button
+            key={theme}
+            type="button"
+            className={`${css.themeBtn} ${css[theme]} ${currentTheme === theme ? css.active : ''} button-reset`}
+            onClick={() => onThemeChange(theme)}
+            title={`Switch to ${theme} theme`}
+          />
+        ))}
+      </div>
+
       <Navigation
         variant="burger"
         onItemClick={onClose}
         onLoginClick={onLoginClick}
         onRegisterClick={onRegisterClick}
       />
+
+    
     </div>
   );
 };
